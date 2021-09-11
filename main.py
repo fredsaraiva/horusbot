@@ -1,21 +1,18 @@
-# This is a sample Python script.
+#
+# Embrião de um script para envio de mensagem via bot telegram
+#
 
-# Press Shift+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
-import telebot
+import sendTelegram as e
+import configparser
 
-my_token = '1954316953:AAFDWSMUrNwHx54IN7xfx5mMuNLvqWW-8yM'
+cfg = configparser.ConfigParser()
+cfg.read("confs/config.ini")
 
-def send(msg, chat_id, token=my_token):
-    """
-    Send a message to a telegram user or group specified on chatId
-    chat_id must be a number!
-    """
-    bot = telebot.TeleBot(my_token)
-    bot.send_message(chat_id,msg)
+my_token = cfg.get('section1', 'token')
+my_chat_id = cfg.get('section2', 'chat_id')
 
-# Press the green button in the gutter to run the script.
+
 if __name__ == '__main__':
-    send('Teste do telegram',-536575991,my_token)
 
-
+    e.send('Teste', my_chat_id, my_token)
+    print("Enviado")
