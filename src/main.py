@@ -29,7 +29,7 @@ def __alerta__():
     while 1:
         time.sleep(60)
         if r == 1:
-            sendTelegram.send('Voltou ' + my_site, my_chat_id, my_token)
+            sendTelegram.__send__('Voltou ' + my_site, my_chat_id, my_token)
             __monitorar__()
 
 
@@ -46,7 +46,7 @@ def __monitorar__():
     while 1:
         time.sleep(120)
         if r == 0:
-            sendTelegram.send('Queda do site ' + my_site, my_chat_id, my_token)
+            sendTelegram.__send__('Queda do site ' + my_site, my_chat_id, my_token)
             __alerta__()
 
 
