@@ -8,6 +8,7 @@ import configparser
 import time
 import checkSite
 import sendTelegram
+from datetime import datetime
 
 cfg = configparser.ConfigParser()
 cfg.read("conf/config.ini")
@@ -15,6 +16,7 @@ cfg.read("conf/config.ini")
 my_token = cfg.get('section1', 'token')
 my_chat_id = cfg.get('section2', 'chat_id')
 my_site = cfg.get('section3', 'site')
+
 
 
 """
@@ -29,7 +31,7 @@ def __alerta__():
     while 1:
         time.sleep(60)
         if r == 1:
-            sendTelegram.__send__('Voltou ' + my_site, my_chat_id, my_token)
+            sendTelegram.__send__('Voltou ' + my_site , my_chat_id, my_token)
             __monitorar__()
 
 
@@ -46,8 +48,8 @@ def __monitorar__():
     while 1:
         time.sleep(120)
         if r == 0:
-            sendTelegram.__send__('Queda do site ' + my_site, my_chat_id, my_token)
-            __alerta__()
+           sendTelegram.__send__('Queda do site ' + my_site, my_chat_id, my_token)
+           __alerta__()
 
 
 """
