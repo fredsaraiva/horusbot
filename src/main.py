@@ -2,13 +2,10 @@
 # Embrião de um script para envio de mensagem via bot telegram
 #
 
-import sendTelegram as e
-import configparser
-import checkSite
-import time
+import configparser, time, checkSite, sendTelegram as e
 
 cfg = configparser.ConfigParser()
-cfg.read("confs/config.ini")
+cfg.read("conf/config.ini")
 
 my_token = cfg.get('section1', 'token')
 my_chat_id = cfg.get('section2', 'chat_id')
